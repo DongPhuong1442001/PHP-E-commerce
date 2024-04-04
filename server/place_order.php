@@ -54,6 +54,8 @@ if(isset($_POST['place_order'])){
 
         $stmt1->execute();
     }
+
+    $_SESSION['order_id'] = $order_id;
     //Bao cho nguoi dung khi co loi hoac ok
     header('location: ../payment.php?order_status=Order placed successfully');
 }
