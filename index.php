@@ -69,8 +69,7 @@
           <h4 class="p-price">
             <?php echo $row['product_price']; ?>kVND
           </h4>
-          <a href="<?php echo "single.php?product_id=" . $row['product_id']; ?>"><button class="buy-btn">Buy
-              Now</button></a>
+          <a href="<?php echo "single.php?product_id=" . $row['product_id']; ?>"><button class="buy-btn">Buy Now</button></a>
         </div>
       <?php } ?>
     </div>

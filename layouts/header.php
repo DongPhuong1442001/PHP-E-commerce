@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +57,13 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="cart.php"> <i class="bi bi-cart"></i></a>
+            <a class="nav-link" href="cart.php"> 
+              <i class="bi bi-cart">
+                <?php if(isset($_SESSION['quantity']) && $_SESSION['quantity'] !=0){?>
+                  <span class="cart-quantity"><?php echo $_SESSION['quantity'];?></span>
+                <?php }?>
+              </i>
+            </a>
           </li>
 
           <li class="nav-item">
