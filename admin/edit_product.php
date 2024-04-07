@@ -18,14 +18,14 @@ include("header.php");
         $title = $_POST['title'];
         $description = $_POST['description'];
         $price = $_POST['price'];
-        $category = $_POST['category'];
-        $color = $_POST['color'];
         $offer = $_POST['offer'];
+        $color = $_POST['color'];
+        $category = $_POST['category'];
 
         $stmt = $conn->prepare("UPDATE products SET product_name=?, product_description=?, product_price=?
                                 ,product_special_offer=?, product_color=?, product_category=? WHERE product_id=?");
 
-        $stmt->bind_param('ssssssi', $title, $description, $price, $category, $color, $offer, $product_id);
+        $stmt->bind_param('ssssssi', $title, $description, $price, $offer, $color, $category, $product_id);
 
         if($stmt->execute()){
             header("location: products.php?edit_success_message=Updated successfully");
@@ -82,15 +82,7 @@ include("header.php");
                         <input type="text" class="form-control" id="product-price" name="price" placeholder="Price" value="<?php echo $product['product_price']?>" required>
                     </div>
 
-                    <div class="form-group mt-2">
-                        <label for="">Category</label>
-                        <select class="form-select" required name="category">
-                            <option value="bags">Bags</option>
-                            <option value="bags">Shoes</option>
-                            <option value="bags">Watches</option>
-                            <option value="bags">Clothes</option>
-                    </div>
-
+                    
                     <div class="form-group mt-2">
                         <label for="">Color</label>
                         <input type="text" class="form-control" id="product-color" name="color" placeholder="Color" value="<?php echo $product['product_color']?>" required>
@@ -100,10 +92,22 @@ include("header.php");
                         <label for="">Special Offer</label>
                         <input type="number" class="form-control" id="product-offer" name="offer" placeholder="Special-Offer" value="<?php echo $product['product_special_offer']?>" required>
                     </div>
-        
+
+                    <div class="form-group mt-2">
+                        <label for="">Category</label>
+                        <select class="form-select" required name="category">
+    <option value="bags" <?php if ($product['product_category'] == "bags") echo "selected"; ?>>Bags</option>
+    <option value="shoes" <?php if ($product['product_category'] == "shoes") echo "selected"; ?>>Shoes</option>
+    <option value="watches" <?php if ($product['product_category'] == "watches") echo "selected"; ?>>Watches</option>
+    <option value="clothes" <?php if ($product['product_category'] == "clothes") echo "selected"; ?>>Clothes</option>
+</select>
+
+                    </div>
+
                     <div class="form-group mt-3">
                         <input type="submit" class="btn btn-success" name="edit_btn" value="Edit"/>
                     </div>
+
                 <?php }?>
                 </form>
         </div>

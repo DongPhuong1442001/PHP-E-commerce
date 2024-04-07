@@ -1,6 +1,6 @@
-<?php 
+<?php include('layouts/header.php');?>
 
-session_start();
+<?php 
 
 include ('server/connection.php');
 
@@ -68,8 +68,6 @@ if(isset($_POST['register'])){
 }
 
 ?>
-
-<?php include('layouts/header.php');?>
     
     <section class="my-5 py-5">
         <div class="container text-center mt-3 pt-5">

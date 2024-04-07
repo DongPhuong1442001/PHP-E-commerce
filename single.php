@@ -1,3 +1,5 @@
+<?php include('layouts/header.php');?>
+
 <?php
 
 include('server/connection.php');
@@ -17,8 +19,6 @@ if (isset($_GET['product_id'])) {
 }
 
 ?>
-
-<?php include('layouts/header.php');?>
 
   <section class="single-product my-5 py-5">
     <div class="row mt-5">

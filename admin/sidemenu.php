@@ -32,7 +32,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="add_new_product.php">
+              <a class="nav-link d-flex align-items-center gap-2" href="add_product.php">
               
                 Add Products
               </a>

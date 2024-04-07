@@ -20,7 +20,7 @@
         $stmt = $conn->prepare("DELETE FROM products WHERE product_id=?");
         $stmt->bind_param('i', $product_id);
 
-        if($stmt1->execute()){
+        if($stmt->execute()){
             header("Location: products.php?deleted_successfully=Product successfully deleted");
 
         }else {

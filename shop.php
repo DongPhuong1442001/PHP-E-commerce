@@ -1,3 +1,5 @@
+<?php include('layouts/header.php');?>
+
 <?php 
 
 include('server/connection.php');
@@ -81,8 +83,6 @@ if(isset($_POST['search'])){
 // $products = $stmt->get_result();
 
 ?>
-
-<?php include('layouts/header.php');?>
 
       <section id="search" class="my-5 py-5 ms-2">
         <div class="container mt-5 py-5">

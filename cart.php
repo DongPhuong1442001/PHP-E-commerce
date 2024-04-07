@@ -1,5 +1,6 @@
+<?php include('layouts/header.php');?>
+
 <?php
-session_start();
 
 if (isset($_POST['add_to_cart'])) {
   if (isset($_SESSION['cart'])) {
@@ -83,8 +84,6 @@ else if (isset ($_POST['edit_quantity'])) {
 
 ?>
 
-<?php include('layouts/header.php');?>
-
   <section class="cart container my-5 py-5">
     <div class="container mt-5">
       <h2 class="font-weight-bold">YOUR CART</h2>
@@ -97,6 +96,8 @@ else if (isset ($_POST['edit_quantity'])) {
         <th>Quantity</th>
         <th>Subtotal</th>
       </tr>
+
+      <?php if(isset($_SESSION['cart'])){?>
 
       <?php foreach ($_SESSION['cart'] as $key => $value) { ?>
         <tr>
@@ -138,15 +139,19 @@ else if (isset ($_POST['edit_quantity'])) {
         </tr>
 
       <?php } ?>
+      <?php } ?>
     </table>
     <div class="cart-total">
         <table>
           <tr>
             <td>Total</td>
-            <td><?php echo $_SESSION['total']?>kVND</td>
+            <?php if(isset($_SESSION['cart'])){?>
+              <td><?php echo $_SESSION['total']?>kVND</td>
+            <?php }?>
           </tr>
         </table>
     </div>
+
     <div class="checkout-container">
       <form method="POST" action="checkout.php">
         <input type="submit" class="btn checkout-btn" value="Checkout" name="checkout">

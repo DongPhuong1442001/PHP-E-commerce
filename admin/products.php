@@ -77,6 +77,22 @@
         <p class="text-center" style="color: cyan;"><?php echo $_GET['deleted_failure'];?></p>
       <?php }?>
 
+      <?php if(isset($_GET['product_created'])){?>
+        <p class="text-center" style="color: cyan;"><?php echo $_GET['product_created'];?></p>
+      <?php }?>
+
+      <?php if(isset($_GET['product_failed'])){?>
+        <p class="text-center" style="color: cyan;"><?php echo $_GET['product_failed'];?></p>
+      <?php }?>
+
+      <?php if(isset($_GET['images_updated'])){?>
+        <p class="text-center" style="color: cyan;"><?php echo $_GET['images_updated'];?></p>
+      <?php }?>
+
+      <?php if(isset($_GET['images_failed'])){?>
+        <p class="text-center" style="color: cyan;"><?php echo $_GET['images_failed'];?></p>
+      <?php }?>
+
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
           <thead>
@@ -88,6 +104,7 @@
               <th scope="col">Product Offer</th>
               <th scope="col">Product Category</th>
               <th scope="col">Product Color</th>
+              <th scope="col">Edit Image</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
             </tr>
@@ -103,6 +120,7 @@
               <td><?php echo $product['product_category'];?></td>
               <td><?php echo $product['product_color'];?></td>
 
+              <td><a class="btn btn-primary" href="<?php echo "edit_images.php?product_id=".$product['product_id']."&product_name=".$product['product_name'];?>">Edit Image</a></td>
               <td><a class="btn btn-success" href="edit_product.php?product_id=<?php echo $product['product_id'];?>">Edit</a></td>
               <td><a class="btn btn-danger" href="delete_product.php?product_id=<?php echo $product['product_id'];?>">Delete</a></td>
             </tr>

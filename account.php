@@ -1,6 +1,8 @@
+<?php include('layouts/header.php');?>
+
 <?php 
 
-  session_start();
+ 
   include('server/connection.php');
 
   if(!isset($_SESSION['logged_in'])){
@@ -60,8 +62,6 @@
   }
 
 ?>
-
-<?php include('layouts/header.php');?>
     
     <section class="my-5 py-5">
         <div class="container row mx-auto">
